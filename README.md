@@ -21,21 +21,25 @@ pip install -e .
 **Step 2:** Download the models and datasets
 
 ```
-# text only model for validation (need hf access)
-tune download ...
+# text only baseline model (need hf access)
+tune download meta-llama/Meta-Llama-3.1-8B-Instruct --ignore-patterns "original/consolidated.00.pth"
 ```
 
+```
+# Vision model
+tune download meta-llama/Llama-3.2-11B-Vision-Instruct --ignore-patterns "original/consolidated.00.pth"
+```
 
+```
+# Download data
+git clone https://github.com/fchollet/ARC-AGI.git
+```
 
 ## Running recipes
 
-All recipes are in torchtune while the configs are local. Run recipes as shown below. For more tune options see [torchtune Docs](https://pytorch.org/torchtune/stable/tune_cli.html)
+Run recipes as shown below. For more tune options see [torchtune Docs](https://pytorch.org/torchtune/stable/tune_cli.html)
 
-> [!NOTE]
-> Due to [this issue](https://github.com/pytorch/torchtune/issues/1540) you can't use `tune run` from this repo
-
-
-Single Device:
+Text Recipe:
 ```bash
-tune run full_finetune_single_device --config configs/11B_full_single_device.yaml
+tune run full_finetune_single_device --config configs/8B_text.yaml
 ```
