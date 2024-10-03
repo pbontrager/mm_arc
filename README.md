@@ -33,6 +33,7 @@ tune download meta-llama/Llama-3.2-11B-Vision-Instruct --ignore-patterns "origin
 ```
 # Download data
 git clone https://github.com/fchollet/ARC-AGI.git
+python format_dataset.py
 ```
 
 ## Running recipes
