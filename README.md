@@ -44,3 +44,8 @@ Text Recipe:
 ```bash
 tune run full_finetune_single_device --config configs/8B_text.yaml
 ```
+
+Text Eval
+```bash
+tune run eval --config configs/8B_text_eval.yaml
+```
